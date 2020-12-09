@@ -66,11 +66,18 @@ function isValidName(name){
 function katilimSaati(dersSayisi, dersSuresi){
   dersSayisi = Number(dersSayisi);
   dersSuresi = Number(dersSuresi);
-  return dersSayisi*dersSuresi;
+  if(isNaN(dersSayisi) || isNaN(dersSuresi)) {
+   throw 'Parameters are wrong';
+  }
+  else{
+    return dersSayisi*dersSuresi;
+  }
 }
 console.log(katilimSaati(3, 30))
 console.log(katilimSaati("3", 20));
 console.log(katilimSaati("5", "30"));
+console.log(katilimSaati("5e", "30"));
+
 
 
 
