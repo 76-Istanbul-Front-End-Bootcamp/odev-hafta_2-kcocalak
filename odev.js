@@ -6,11 +6,11 @@
 var person = {
   name: "John",
   message: function () {    
-    console.log("Hello, " + this.name)
+    console.log("Hello, " + this.name);
   }
 }
 
-var messageFunc = person.message
+var messageFunc = person.message.bind(person);
 messageFunc();
 
 
@@ -28,7 +28,7 @@ var numbers = {
     this.numbers[0].map(function(number, numberIndex){
         const result = number * this.numbers[1];
         console.log(result)
-    })
+    }.bind(this))
   }
 };
 
@@ -43,7 +43,12 @@ numbers.multiply();
   Ornek : isValidName(" J ohn") false donmeli
 */
 function isValidName(name){
-
+  if (typeof(name) === "string"){
+    console.log("icerde");
+  }
+  else {
+    throw "Parameter is not acceptable";
+  }
 }
 
 /*
@@ -59,7 +64,13 @@ function isValidName(name){
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 function katilimSaati(dersSayisi, dersSuresi){
-
+  dersSayisi = Number(dersSayisi);
+  dersSuresi = Number(dersSuresi);
+  return dersSayisi*dersSuresi;
 }
+console.log(katilimSaati(3, 30))
+console.log(katilimSaati("3", 20));
+console.log(katilimSaati("5", "30"));
+
 
 
