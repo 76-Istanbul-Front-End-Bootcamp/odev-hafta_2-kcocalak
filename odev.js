@@ -44,12 +44,31 @@ numbers.multiply();
 */
 function isValidName(name){
   if (typeof(name) === "string"){
-    console.log("icerde");
+    var trimmedName = name.trim();
+    var splittedName = trimmedName.split(" ");
+    console.log(splittedName);
+    for (var i =0; i<splittedName.length; i++) {
+      if(splittedName[i].length <= 1) {
+        //throw "Parameter is not acceptable";
+        console.log("false");
+      }
+      
+    else {return true;}
+  }
   }
   else {
-    throw "Parameter is not acceptable";
+    //throw "Parameter is not acceptable";
+    console.log("false");
+
   }
 }
+console.log(isValidName("Frank") === true);
+console.log(isValidName(false) === false);
+console.log(isValidName(null) === false);
+console.log(isValidName(undefined) === false);
+console.log(isValidName("") === false);
+console.log(isValidName("  \t\n") === false);
+console.log(isValidName("X") === false);
 
 /*
   Odev 4:
@@ -64,10 +83,11 @@ function isValidName(name){
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 function katilimSaati(dersSayisi, dersSuresi){
-  dersSayisi = Number(dersSayisi);
-  dersSuresi = Number(dersSuresi);
+  dersSayisi = Number(dersSayisi + "");
+  dersSuresi = Number(dersSuresi + "");
   if(isNaN(dersSayisi) || isNaN(dersSuresi)) {
-   throw 'Parameters are wrong';
+   console.log("false");
+    //throw 'Parameters are wrong';
   }
   else{
     return dersSayisi*dersSuresi;
@@ -77,7 +97,21 @@ console.log(katilimSaati(3, 30))
 console.log(katilimSaati("3", 20));
 console.log(katilimSaati("5", "30"));
 console.log(katilimSaati("5e", "30"));
+console.log(katilimSaati(false,false));
+console.log(katilimSaati(false,true));
+console.log(katilimSaati(true,false));
+console.log(katilimSaati(true,true));
 
-
-
+/*
+console.log(katilimSaati(false,false) === false);
+console.log(katilimSaati(false,true) === false);
+console.log(katilimSaati(true,false) === false);
+console.log(katilimSaati(true,true) === false);
+console.log(katilimSaati(10,6) === false);
+console.log(katilimSaati(10,"6") === false);
+console.log(katilimSaati("10",6) === false);
+console.log(katilimSaati("10","6") === false);
+console.log(katilimSaati(6,10.1) === false);
+console.log(katilimSaati(6.1,10) === false);
+console.log(katilimSaati(6,"10.1") */
 
