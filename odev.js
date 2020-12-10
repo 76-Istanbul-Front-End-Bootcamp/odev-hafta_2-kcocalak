@@ -50,7 +50,7 @@ function isValidName(name){
     for (var i =0; i<splittedName.length; i++) {
       if(splittedName[i].length <= 1) {
         //throw "Parameter is not acceptable";
-        console.log("false");
+        result false;
       }
       
     else {return true;}
@@ -58,7 +58,7 @@ function isValidName(name){
   }
   else {
     //throw "Parameter is not acceptable";
-    console.log("false");
+    return false;
 
   }
 }
@@ -86,21 +86,21 @@ function katilimSaati(dersSayisi, dersSuresi){
   dersSayisi = Number(dersSayisi + "");
   dersSuresi = Number(dersSuresi + "");
   if(isNaN(dersSayisi) || isNaN(dersSuresi)) {
-   console.log("false");
+   return false;
     //throw 'Parameters are wrong';
   }
   else{
     return dersSayisi*dersSuresi;
   }
 }
-console.log(katilimSaati(3, 30))
-console.log(katilimSaati("3", 20));
-console.log(katilimSaati("5", "30"));
-console.log(katilimSaati("5e", "30"));
-console.log(katilimSaati(false,false));
-console.log(katilimSaati(false,true));
-console.log(katilimSaati(true,false));
-console.log(katilimSaati(true,true));
+console.log(katilimSaati(3, 30) === 90);
+console.log(katilimSaati("3", 20) === 60);
+console.log(katilimSaati("5", "30") === 150);
+console.log(katilimSaati("5e", "30") === false);
+console.log(katilimSaati(false,false) === false);
+console.log(katilimSaati(false,true) === false);
+console.log(katilimSaati(true,false) === false);
+console.log(katilimSaati(true,true) === false);
 
 /*
 console.log(katilimSaati(false,false) === false);
@@ -114,4 +114,3 @@ console.log(katilimSaati("10","6") === false);
 console.log(katilimSaati(6,10.1) === false);
 console.log(katilimSaati(6.1,10) === false);
 console.log(katilimSaati(6,"10.1") */
-
